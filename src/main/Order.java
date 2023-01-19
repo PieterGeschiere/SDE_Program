@@ -15,7 +15,7 @@ public class Order {
     int overwatch = 40;
     public int order() {
         while (true) {
-            writer.write("Enter Your Choice ");
+            writer.write("Which game would you like ");
             String ch = sc.next().toLowerCase();
             switch (ch) {
                 case "amongus" -> {// Among Us
@@ -43,6 +43,7 @@ public class Order {
                         System.exit(1);
                 default -> {
                     writer.write("Invalid Choice");
+                    order();
                 }
 
             }
@@ -52,8 +53,7 @@ public class Order {
             if(again.equalsIgnoreCase("Y"))
             {order();}
             else if(again.equalsIgnoreCase("N"))
-            {billing.generateBill(total);
-                System.exit(1);}
+            {billing.generateBill(total);}
             else{writer.write("Invalid Choice");}
         }
     }
