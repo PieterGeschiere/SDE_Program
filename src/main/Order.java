@@ -2,65 +2,47 @@ package main;
 
 import java.util.Scanner;
 
-public class GameOrder {
-    ConsoleWriter writer = new ConsoleWriter();
 
+public class Order {
+    ConsoleWriter writer = new ConsoleWriter();
+    Billing billing = new Billing();
+    Scanner sc = new Scanner(System.in);
+    String again;
+    int quantity;
+    int total;
     int amongus = 9;
     int backrooms = 7;
     int overwatch = 40;
-    int ch;
-    int quantity;
-    static int total;
-    String again;
-
-    Scanner sc = new Scanner(System.in);
-
-    public void displayGames(){
-        writer.write("~~~~~~~~~~~~~~ Welcome to our shop ~~~~~~~~~~~~~~");
-        writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        writer.write("          1. Among us                          $9");
-        writer.write("          2. Backrooms                         $7");
-        writer.write("          3. Overwatch                        $40");
-        writer.write("          4. Exit                                ");
-    }
-
-    public void generateBill()
-    {
-        writer.write("");
-        writer.write("***************** Thank you for ordering ******************");
-        writer.write("****************Your Bill is : " +total+"*****************");
-    }
-
-
-    public void order() {
+    public int order() {
         while (true) {
             writer.write("Enter Your Choice ");
-            ch = sc.nextInt();
+            String ch = sc.next().toLowerCase();
             switch (ch) {
-                case 1 -> {// Among Us
-                    writer.write("You have Selected Among us");
+                case "amongus" -> {// Among Us
+                    writer.write("You have Selected AmongUs");
                     writer.write("");
                     writer.write("Enter the desired Quantity : ");
                     quantity = sc.nextInt();
                     total = total + quantity * amongus;
                 }
-                case 2 -> {// Backrooms
+                case "backrooms" -> {// Backrooms
                     writer.write("You have Selected Backrooms");
                     writer.write("");
                     writer.write("Enter the desired Quantity : ");
                     quantity = sc.nextInt();
                     total = total + quantity * backrooms;
                 }
-                case 3 -> {// Overwatch
+                case "overwatch" -> {// Overwatch
                     writer.write("You have Selected Overwatch");
                     writer.write("");
                     writer.write("Enter the desired Quantity : ");
                     quantity = sc.nextInt();
                     total = total + quantity * overwatch;
                 }
-                case 4 ->// exit
+                case "exit" ->// exit
                         System.exit(1);
                 default -> {
+                    writer.write("Invalid Choice");
                 }
 
             }
@@ -70,9 +52,9 @@ public class GameOrder {
             if(again.equalsIgnoreCase("Y"))
             {order();}
             else if(again.equalsIgnoreCase("N"))
-            {generateBill();
+            {billing.generateBill(total);
                 System.exit(1);}
-            else{System.out.println("Invalid Choice");}
+            else{writer.write("Invalid Choice");}
         }
     }
 }
