@@ -2,16 +2,16 @@ package main;
 
 import java.util.Scanner;
 
-public class Start {
+public class Start implements Scene{
     Scanner sc = new Scanner(System.in);
     ConsoleWriter writer = new ConsoleWriter();
     GameDisplay gameDisplay = new GameDisplay();
     Order order = new Order();
-    Info info = new Info();
     String check;
 
 
-    public void startScreen(){
+    @Override
+    public String getText() {
         writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         writer.write("~~~~~~ You are standing in front of a shop ~~~~~~");
         writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -32,11 +32,10 @@ public class Start {
         else if(check.equalsIgnoreCase("Leave"))
         {System.exit(1);}
         else if(check.equalsIgnoreCase("info"))
-        {info.info();}
+        {return "info";}
 //        else if (check.equalsIgnoreCase("ATM"))
 //        {atmMachine.ATMMachines();}
         else{writer.write("Invalid Choice");}
-
+        return "start";
     }
-
 }

@@ -1,14 +1,15 @@
 package main;
 
 import java.util.Scanner;
-public class Info {
+public class Info implements Scene {
     String check;
     Scanner sc = new Scanner(System.in);
     ConsoleWriter writer = new ConsoleWriter();
     GameDisplay gameDisplay = new GameDisplay();
     Order order = new Order();
 
-    public void info() {
+    @Override
+    public String getText() {
         writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         writer.write("~~~~~~~~~~~~~~~~~~~~~~~Info~~~~~~~~~~~~~~~~~~~~~~");
         writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -27,7 +28,8 @@ public class Info {
             order.order();
         }
         else if(check.equalsIgnoreCase("N"))
-        {System.exit(1);}
+        {return "start";}
         else{writer.write("Invalid Choice");}
+        return "info";
     }
 }
