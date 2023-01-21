@@ -7,6 +7,26 @@ public class NoCash implements ATMState {
         atmMachine = newATMMachine;
     }
 
+    @Override
+    public String getText(){
+        writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        writer.write("~~~~~~~~~~~~~~~~~~~~~~~ATM~~~~~~~~~~~~~~~~~~~~~~~");
+        writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        writer.write("                Welcome to the ATM               ");
+        writer.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        writer.write("                     type in                     ");
+        writer.write("                   Insert card                   ");
+        writer.write("                       or                        ");
+        writer.write("                      exit                       ");
+
+        String check = sc.next();
+        if(check.equalsIgnoreCase("insert card")){
+            insertCard();
+        }
+        else{writer.write("Invalid Choice");}
+        {return "info";}
+    }
+
     public void insertCard() {
         System.out.println("We don't have any money");
         System.out.println("Your card is ejected");

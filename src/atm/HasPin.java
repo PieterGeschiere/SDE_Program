@@ -7,6 +7,21 @@ public class HasPin implements ATMState{
         atmMachine = newATMMachine;
     }
 
+    @Override
+    public String getText(){
+        writer.write("request cash");
+        writer.write("or");
+        writer.write("exit");
+
+        int checkInt = sc.nextInt();
+        String checkStr = sc.next();
+        if(checkStr.equalsIgnoreCase("request cash")){
+            requestCash(2000);
+        }
+        else{writer.write("Invalid Choice");}
+        {return "info";}
+    }
+
     public void insertCard() {
         System.out.println("You already entered a card");
     }
@@ -21,6 +36,7 @@ public class HasPin implements ATMState{
             System.out.println("You don't have that much cash available");
             System.out.println("Your card is ejected");
             atmMachine.setATMState(atmMachine.getNoCardState());
+            atmMachine.getText();
         } else {
             System.out.println(cashToWithdraw + " is provided by the machine");
             atmMachine.setCashInMachine(atmMachine.cashInMachine - cashToWithdraw);

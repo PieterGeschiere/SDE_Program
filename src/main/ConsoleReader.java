@@ -9,7 +9,7 @@ public class ConsoleReader {
         try{
             String line = (new BufferedReader(
                     new InputStreamReader(System.in))
-            ).readLine();
+            ).readLine().toLowerCase();
 
             return line;
         }

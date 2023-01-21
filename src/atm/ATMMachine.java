@@ -1,7 +1,11 @@
 package atm;
 
+import main.ConsoleWriter;
+
 public class ATMMachine {
 
+    ConsoleWriter writer = new ConsoleWriter();
+    private static ATMMachine instance = null;
     ATMState hasCard;
     ATMState noCard;
     ATMState hasCorrectPin;
@@ -25,6 +29,19 @@ public class ATMMachine {
             atmState = atmOutOfMoney;
         }
     }
+
+    public static ATMMachine getInstance(){
+        if(instance == null){
+            instance = new ATMMachine();
+        }
+        return instance;
+    }
+
+    public void getText() {
+        atmState.getText();
+        writer.write(String.valueOf(atmState));
+    }
+
     void setATMState(ATMState newATMState){
         atmState = newATMState;
     }

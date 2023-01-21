@@ -1,5 +1,7 @@
 package main;
 
+import builder.Game;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
@@ -12,35 +14,36 @@ public class Order {
     String again;
     int quantity;
     int total;
-    int amongus = 9;
-    int backrooms = 7;
-    int overwatch = 40;
+    GameList gameList = new GameList();
+    Game amongUs = gameList.amongUs();
+    Game backrooms = gameList.backrooms();
+    Game overwatch = gameList.overwatch();
     public int order() {
         while (true) {
+            writer.write("");
             writer.write("Which game would you like ");
             String ch = cr.readLine();
-            writer.write(ch);
             switch (ch) {
                 case "among us" -> {// Among Us
-                    writer.write("You have Selected Among Us");
+                    writer.write("You have Selected " + amongUs.name);
                     writer.write("");
                     writer.write("Enter the desired Quantity : ");
                     quantity = Integer.parseInt(cr.readLine());
-                    total = total + quantity * amongus;
+                    total = total + quantity * amongUs.price;
                 }
                 case "backrooms" -> {// Backrooms
-                    writer.write("You have Selected Backrooms");
+                    writer.write("You have Selected " +backrooms.name);
                     writer.write("");
                     writer.write("Enter the desired Quantity : ");
                     quantity = Integer.parseInt(cr.readLine());
-                    total = total + quantity * backrooms;
+                    total = total + quantity * backrooms.price;
                 }
                 case "overwatch" -> {// Overwatch
-                    writer.write("You have Selected Overwatch");
+                    writer.write("You have Selected " + overwatch.name);
                     writer.write("");
                     writer.write("Enter the desired Quantity : ");
                     quantity = Integer.parseInt(cr.readLine());
-                    total = total + quantity * overwatch;
+                    total = total + quantity * overwatch.price;
                 }
                 case "exit" ->// exit
                         System.exit(1);

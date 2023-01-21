@@ -7,6 +7,20 @@ public class HasCard implements ATMState {
         atmMachine = newATMMachine;
     }
 
+    @Override
+    public String getText(){
+        writer.write("enter pin");
+        writer.write("or");
+        writer.write("exit");
+
+        int checkInt = sc.nextInt();
+        if(checkInt == 1234){
+            insertPin(1234);
+        }
+        else{writer.write("Invalid Choice");}
+        {return "info";}
+    }
+
     public void insertCard() {
         writer.write("You can only insert one card at a time");
     }
@@ -21,15 +35,16 @@ public class HasCard implements ATMState {
     }
 
     public void insertPin(int pinEntered) {
-        if(pinEntered == 1234){
-            writer.write("You entered the correct PIN");
-            atmMachine.correctPinEntered = true;
-            atmMachine.setATMState(atmMachine.getHasPin());
-        } else {
-            writer.write("You entered the wrong PIN");
-            atmMachine.correctPinEntered = false;
-            writer.write("Your card is ejected");
-            atmMachine.setATMState(atmMachine.getNoCardState());
-        }
+           if(pinEntered == 1234) {
+               writer.write("You entered the correct PIN");
+               atmMachine.correctPinEntered = true;
+               atmMachine.setATMState(atmMachine.getHasPin());
+               atmMachine.getText();
+           } else {
+               System.out.println("you entered the wrong pin");
+               atmMachine.correctPinEntered = false;
+               System.out.println("your card is ejected");
+               atmMachine.setATMState(atmMachine.getNoCardState());
+           }
     }
 }
