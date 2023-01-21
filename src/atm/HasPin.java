@@ -18,7 +18,7 @@ public class HasPin implements ATMState{
             requestCash(2000);
         }
         else{writer.write("Invalid Choice");}
-        {return getText();}
+        {return "info";}
     }
 
     public void insertCard() {
