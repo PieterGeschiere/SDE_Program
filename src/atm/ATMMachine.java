@@ -13,7 +13,7 @@ public class ATMMachine {
 
     ATMState atmState;
 
-    int cashInMachine = 5000;
+    int cashInMachine = 3000;
     boolean correctPinEntered = false;
 
     public ATMMachine() {
@@ -39,7 +39,6 @@ public class ATMMachine {
 
     public void getText() {
         atmState.getText();
-        writer.write(String.valueOf(atmState));
     }
 
     void setATMState(ATMState newATMState){

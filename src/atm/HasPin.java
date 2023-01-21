@@ -13,13 +13,12 @@ public class HasPin implements ATMState{
         writer.write("or");
         writer.write("exit");
 
-        int checkInt = sc.nextInt();
-        String checkStr = sc.next();
-        if(checkStr.equalsIgnoreCase("request cash")){
+        String check = cr.readLine();
+        if(check.equalsIgnoreCase("request cash")){
             requestCash(2000);
         }
         else{writer.write("Invalid Choice");}
-        {return "info";}
+        {return getText();}
     }
 
     public void insertCard() {

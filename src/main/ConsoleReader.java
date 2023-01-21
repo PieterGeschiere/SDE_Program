@@ -14,7 +14,7 @@ public class ConsoleReader {
             return line;
         }
         catch(IOException ex) {
-            return "Gibberish input detected";
+            return "Non Valid Input Detected";
         }
     }
 }
