@@ -2,10 +2,10 @@
 
  Dit programma is gemaakt door Jay Groenendijk en Pieter Geschiere. 
  In dit programma kan je een winkel in om games te kopen, naar een ATM
- machine om geld te vragen en je hebt een allyway waar je geld kan geven aan 
+ machine om geld te vragen en je hebt een alleyway waar je geld kan geven aan 
  een zwerver.
 
- Pieter heeft de allyway, builder, ConsoleReader en de shop gemaakt.
+ Pieter heeft de alleyway, builder, ConsoleReader en de shop gemaakt.
  Jay heeft de ATM en de ConsoleReader gemaakt en geholpen aan de shop.
  Beide zijn bezig geweest met drie design patterns, 
  Jay: State, Singleton, Adapter.
