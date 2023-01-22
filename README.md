@@ -2,7 +2,7 @@
 
  Dit programma is gemaakt door Jay Groenendijk en Pieter Geschiere. 
  In dit programma kan je een winkel in om games te kopen, naar een ATM
- machine om geld te vragen en je hebt een alleyway waar je geld kan geven aan 
+ machine om geld te vragen (code is 1234) en je hebt een alleyway waar je geld kan geven aan 
  een zwerver.
 
  Pieter heeft de alleyway, builder, ConsoleReader en de shop gemaakt.
